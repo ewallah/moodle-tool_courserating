@@ -30,6 +30,7 @@ final class permission_test extends \advanced_testcase {
      * setUp
      */
     protected function setUp(): void {
+        parent::setUp();
         $this->resetAfterTest();
     }
 
