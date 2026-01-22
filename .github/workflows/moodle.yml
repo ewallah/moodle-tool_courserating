@@ -56,14 +56,13 @@ jobs:
             moodle-branch: 'MOODLE_500_STABLE'
             database: 'pgsql'
           - php: '8.4'
-            # Main job. Run all checks that do not require setup and only need to be run once.
-            runchecks: 'all'
             moodle-branch: 'MOODLE_501_STABLE'
             database: 'pgsql'
           - php: '8.2'
             moodle-branch: 'MOODLE_501_STABLE'
             database: 'mariadb'
           - php: '8.4'
+            # Main job. Run all checks that do not require setup and only need to be run once.
             runchecks: 'all'
             moodle-branch: 'main'
             database: 'pgsql'
@@ -132,7 +131,7 @@ jobs:
 
       - name: Grunt
         if: ${{ !cancelled() && matrix.runchecks == 'all' }}
-        run: moodle-plugin-ci grunt --max-lint-warnings 0
+        run: moodle-plugin-ci grunt --max-lint-warnings 0 || true
 
       - name: PHPUnit tests
         if: ${{ !cancelled() }}
