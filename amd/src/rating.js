@@ -24,7 +24,7 @@
 import {get_string as getString} from 'core/str';
 import {add as addToast} from 'core/toast';
 import ModalForm from "core_form/modalform";
-import ModalFactory from "core/modal_factory";
+import Modal from "core/modal";
 import Fragment from "core/fragment";
 import Templates from "core/templates";
 import ModalEvents from 'core/modal_events';
@@ -153,8 +153,7 @@ const addRating = (courseid) => {
  * @param {Number} courseid
  */
 const viewRatings = (courseid) => {
-    ModalFactory.create({
-        type: ModalFactory.types.CANCEL,
+    Modal.create({
         title: getString('coursereviews', 'tool_courserating'),
         large: true,
         buttons: {
@@ -177,8 +176,7 @@ const viewRatings = (courseid) => {
             modal.show();
             viewRatingsModal = modal;
             return modal;
-        })
-        .fail(() => null);
+        });
 };
 
 /**
