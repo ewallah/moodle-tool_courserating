@@ -28,6 +28,7 @@ import Modal from "core/modal";
 import Fragment from "core/fragment";
 import Templates from "core/templates";
 import ModalEvents from 'core/modal_events';
+import Notification from 'core/notification';
 import ajax from 'core/ajax';
 
 const SELECTORS = {
@@ -176,7 +177,8 @@ const viewRatings = (courseid) => {
             modal.show();
             viewRatingsModal = modal;
             return modal;
-        });
+        })
+        .catch(Notification.exception);
 };
 
 /**
