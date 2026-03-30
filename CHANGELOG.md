@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.5.0] - 2026032800
+### Changed
+- Minimum supported Moodle version raised to 4.5
+- Replaced deprecated modal_factory
+- Other changes to support Moodle 5.2
+
 ## [4.1.0] - 2025110600
 ### Added
 - Ability to completely disable text reviews or make them visible to teachers only #9

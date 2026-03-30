@@ -62,9 +62,14 @@ class tool_courserating_generator extends testing_module_generator {
      * @return void
      */
     public function clear_course_custom_field_cache() {
-        $reflection = new \ReflectionProperty(\core_course\customfield\course_handler::class, 'singleton');
-        $reflection->setAccessible(true);
-        $reflection->setValue(null, null);
+        try {
+            $reflection = new \ReflectionProperty(\core_course\customfield\course_handler::class, 'singleton');
+            $reflection->setAccessible(true);
+            $reflection->setValue(null, null);
+        // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+        } catch (\ReflectionException $e) {
+            // In Moodle 5.2+ there is no more static cache.
+        }
     }
 
     /**

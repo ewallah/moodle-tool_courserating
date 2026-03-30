@@ -87,7 +87,9 @@ Feature: Viewing and adding course ratings as a student
 
   Scenario Outline: Viewing course ratings as a non-logged in user
     Given the following config values are set as admin:
-      | usehtml | <usehtml> | tool_courserating |
+      | usehtml      | <usehtml> | tool_courserating |
+      | forcelogin   | 0         |                   |
+      | enablemyhome | 1         |                   |
     Given the following "tool_courserating > ratings" exist:
       | user     | course | rating | review |
       | student1 | C1     | 3      | abcdef |
